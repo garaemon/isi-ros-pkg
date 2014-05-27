@@ -1,0 +1,19 @@
+# -*- mode: makefile -*-
+ARCH = $(shell uname -m)
+ifeq ($(ARCH), x86_64)
+LIBRARY_URL = http://www.isi.imi.i.u-tokyo.ac.jp/software/c3_hlac/pcl/x64/libc3_hlac_core.so
+else
+LIBRARY_URL = http://www.isi.imi.i.u-tokyo.ac.jp/software/c3_hlac/pcl/x86/libc3_hlac_core.so
+endif
+
+# download the library into lib/ directory
+lib/libc3_hlac_core.so: lib
+	wget $(LIBRARY_URL) -O lib/libc3_hlac_core.so
+
+all: lib/libc3_hlac_core.so
+lib:
+	mkdir -p lib
+clean: wipe
+
+wipe:
+	rm -rf lib
