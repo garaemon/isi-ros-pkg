@@ -11,6 +11,7 @@
   <url>http://ros.org/wiki/c3_hlac_core</url>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
+  <build_depend>rospack</build_depend>
   <run_depend>roscpp</run_depend>
 
 </package>
