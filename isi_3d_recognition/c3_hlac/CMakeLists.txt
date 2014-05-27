@@ -1,3 +1,8 @@
+if(NOT USE_ROSBUILD)
+  include(catkin.cmake)
+  return()
+endif()
+
 cmake_minimum_required(VERSION 2.4.6)
 include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
@@ -26,5 +31,5 @@ link_directories(${LIBRARY_OUTPUT_PATH})
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 rosbuild_add_library(c3_hlac src/c3_hlac.cpp)
-rosbuild_add_executable(example_c3_hlac test/example_c3_hlac.cpp)
-target_link_libraries(example_c3_hlac c3_hlac)
+# rosbuild_add_executable(example_c3_hlac test/example_c3_hlac.cpp)
+# target_link_libraries(example_c3_hlac c3_hlac)
